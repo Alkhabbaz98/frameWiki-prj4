@@ -7,7 +7,7 @@ class Character(models.Model):
     def __str__(self):
         return f'{self.name}'
     class Meta:
-        pass
+        db_table = 'characters'
 
 
 class Move(models.Model):
@@ -42,4 +42,4 @@ class Move(models.Model):
         return f'{self.character} - {self.name}'
 
     class Meta:
-        pass
+        db_table = 'moves'
