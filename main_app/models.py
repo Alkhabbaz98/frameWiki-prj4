@@ -1,14 +1,22 @@
 from django.db import models
 
 # Create your models here.
-class Character(models.Model):
+class Game(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return f'{self.name}'
     class Meta:
-        db_table = 'characters'
+        db_table = 'games'
 
+class Character(models.Model):
+    name = models.CharField(max_length=50)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name ='game')
+
+    def __str__(self):
+        return f'{self.name}'
+    class Meta:
+        db_table = 'characters'
 
 class Move(models.Model):
     Guard_choices = [
