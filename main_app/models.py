@@ -11,7 +11,7 @@ class Game(models.Model):
 
 class Character(models.Model):
     name = models.CharField(max_length=50)
-    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name ='game')
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name ='characters')
 
     def __str__(self):
         return f'{self.name}'
