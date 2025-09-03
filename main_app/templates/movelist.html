@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+    {% block content %}
+    {% for move in moves %}
+    <h1>{{move.character}}</h1>
+    <ul>
+        <li>{{move.name}}</li>
+        <li>{{move.move_type}}</li>
+        <li>{{move.damage}}</li>
+        <li>{{move.guard_type}}</li>
+        <li>{{move.start_up}}</li>
+        <li>{{move.active}}</li>
+        <li>{{move.recovery}}</li>
+        <li>{{move.description}}</li>
+
+    </ul>
+    {% endfor %}
+    
+    {% endblock  %}

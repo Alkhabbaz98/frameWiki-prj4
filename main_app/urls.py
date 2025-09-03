@@ -2,5 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-   path('frameWiki/',views.MoveListView.as_view(), name ='movelist')
+   path('frameWiki/movelist/', views.MoveListView.as_view(), name ='movelist'),
+   path('frameWiki/<int:pk>/', views.MoveDetailView.as_view(), name = 'move_details'),
+   path()
+
 ]

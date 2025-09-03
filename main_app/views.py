@@ -21,6 +21,7 @@ class MoveDetailView(DetailView):
 
 class MoveCreateView(CreateView):
     model = Move
+    fields = ['character','name','move_type','damage','guard_type','start_up','active','recovery','description']
     template_name = './moves_form.html'
 
     def  get_success_url(self):
