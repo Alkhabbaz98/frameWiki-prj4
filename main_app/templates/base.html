@@ -3,8 +3,8 @@
   <head><meta charset="utf-8"><title>FrameWiki</title></head>
   <body>
     <nav>
-      <a href="{% url 'home' %}">Home</a> |
-      <a href="{% url 'Add Move' %}">Create Book</a> |
+      <a href="{% url 'movelist' %}">Movelist</a> |
+      <a href="{% url 'move_create' %}">Add a New Move</a> |
     </nav>
     <hr>
     {% block content %}{% endblock %}
