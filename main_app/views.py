@@ -60,5 +60,6 @@ def character_list(request, game_id):
     return render(request, 'characterlist.html', {'characters': characters})
 
 def character_details(request,character_id):
+    moves = Move.objects.all().filter(character = character_id)
     character = Character.objects.get(id = character_id)
-    return render(request, 'character_details.html', {'character': character})
+    return render(request, 'character_details.html', {'character': character, 'moves':moves })

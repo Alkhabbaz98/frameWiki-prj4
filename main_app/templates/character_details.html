@@ -2,5 +2,7 @@
 
 {% block content %}
 <h1> {{character.name}}</h1>
-
+{% for move in moves%}
+<p>{{ move.name }}</p>
+{%endfor%}
 {% endblock %}
