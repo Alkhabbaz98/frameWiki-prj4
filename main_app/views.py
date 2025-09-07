@@ -43,3 +43,22 @@ class MoveUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('move_details', kwargs={"pk": self.object.pk})
+
+class MoveDeleteView(DeleteView):
+    model = Move
+    success_url = 'frameWiki/movelist/'
+
+
+
+
+def list_all_games(request):
+    games = Game.objects.all()
+    return render(request, 'gamelist.html', {'games': games})
+
+def character_list(request, game_id):
+    characters = Character.objects.all().filter(game = game_id)
+    return render(request, 'characterlist.html', {'characters': characters})
+
+def character_details(request,character_id):
+    character = Character.objects.get(id = character_id)
+    return render(request, 'character_details.html', {'character': character})

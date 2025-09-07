@@ -33,7 +33,6 @@ class Move(models.Model):
         ("Normal", "Normal"),
         ("Special", "Special"),
     ]
-
     character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="moves")
     name = models.CharField(max_length=50)
     move_type = models.CharField(

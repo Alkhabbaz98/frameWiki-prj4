@@ -16,5 +16,9 @@
 
   <hr>
   <a href="{% url 'move_update' move.pk %}"> Edit</a> |
+  <form action="{% url 'move_delete' move.pk%}" method='post'>
+            {% csrf_token %}
+            <button>Delete Move</button>
+        </form>
 
 {% endblock %}

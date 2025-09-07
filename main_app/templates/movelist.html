@@ -12,6 +12,8 @@
         <li>Active: {{move.active}}</li>
         <li>Recovery: {{move.recovery}}</li>
         <li>Description: {{move.description}}</li>
+    
+        <a href="{% url 'move_details' move.pk%}">view</a>
 
     </ul>
     {% endfor %}

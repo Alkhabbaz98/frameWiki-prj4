@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for character in characters%}
+<a href="/frameWiki/characters/{{character.id}}">{{ character.name }}</a>
+{%endfor%}
+{% endblock %}
