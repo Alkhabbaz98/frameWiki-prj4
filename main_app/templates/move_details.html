@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ move.name }} ({{ move.character.name }})</h1>
+  <h2>Game: {{ move.character.game.name }}</h2>
+
+  <ul>
+    <li>Type:{{ move.move_type }}</li>
+    <li>Damage:{{ move.damage }}</li>
+    <li>Guard:{{ move.guard_type }}</li>
+    <li>Startup:{{ move.start_up }}</li>
+    <li>Active:{{ move.active }}</li>
+    <li>Recovery:{{ move.recovery }}</li>
+    <li>Description:{{ move.description }}</li>
+  </ul>
+
+  <hr>
+  <a href="{% url 'move_update' move.pk %}"> Edit</a> |
+
+{% endblock %}

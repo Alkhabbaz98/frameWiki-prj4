@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Add A Move</h1>
+    <h1> Add a New Move</h1>
 
-  
+    <form method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button>Create a Move</button>
+    </form>
 {% endblock %}

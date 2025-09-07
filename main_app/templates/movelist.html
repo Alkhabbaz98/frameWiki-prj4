@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
     {% block content %}
-   
     {% for move in moves %}
     <h1>{{move.character}}</h1>
     <ul>
-        <li>{{move.name}}</li>
-        <li>{{move.move_type}}</li>
-        <li>{{move.damage}}</li>
-        <li>{{move.guard_type}}</li>
-        <li>{{move.start_up}}</li>
-        <li>{{move.active}}</li>
-        <li>{{move.recovery}}</li>
-        <li>{{move.description}}</li>
+        <li>Name: {{move.name}}</li>
+        <li>Type of Move: {{move.move_type}}</li>
+        <li>Damage: {{move.damage}}</li>
+        <li>Block: {{move.guard_type}}</li>
+        <li>Startup: {{move.start_up}}</li>
+        <li>Active: {{move.active}}</li>
+        <li>Recovery: {{move.recovery}}</li>
+        <li>Description: {{move.description}}</li>
 
     </ul>
     {% endfor %}
