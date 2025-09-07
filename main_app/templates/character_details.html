@@ -3,6 +3,17 @@
 {% block content %}
 <h1> {{character.name}}</h1>
 {% for move in moves%}
-<p>{{ move.name }}</p>
+    <ul>
+        <li>Name: {{move.name}}</li>
+        <li>Type of Move: {{move.move_type}}</li>
+        <li>Damage: {{move.damage}}</li>
+        <li>Block: {{move.guard_type}}</li>
+        <li>Startup: {{move.start_up}}</li>
+        <li>Active: {{move.active}}</li>
+        <li>Recovery: {{move.recovery}}</li>
+        <li>Description: {{move.description}}</li>
+
+    </ul>
+<hr>
 {%endfor%}
 {% endblock %}

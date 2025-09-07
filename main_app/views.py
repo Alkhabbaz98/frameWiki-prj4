@@ -46,8 +46,9 @@ class MoveUpdateView(UpdateView):
 
 class MoveDeleteView(DeleteView):
     model = Move
-    success_url = 'frameWiki/movelist/'
-
+    # success_url = 'movelist'
+    def get_success_url(self):
+        return reverse_lazy('movelist')
 
 
 
