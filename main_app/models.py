@@ -36,6 +36,7 @@ class Move(models.Model):
     MOVE_CHOICES = [
         ("Normal", "Normal"),
         ("Special", "Special"),
+        ('Super','Super'),
     ]
     character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="moves")
     image = models.ImageField(upload_to = 'image_store/', blank = True, null = True)
