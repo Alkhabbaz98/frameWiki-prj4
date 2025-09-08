@@ -4,7 +4,7 @@
     {% for move in moves %}
     <h1>{{move.character}}</h1>
     <ul>
-        <li>{{ move.image }}</li>
+        <img src="{{ move.image.url }}" alt="johnny mist finer">
         <li>Name: {{move.name}}</li>
         <li>Type of Move: {{move.move_type}}</li>
         <li>Damage: {{move.damage}}</li>

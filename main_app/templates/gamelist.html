@@ -2,6 +2,7 @@
 
 {% block content %}
 {% for game in games%}
-<a href="/frameWiki/games/{{game.id}}">{{ game.name }}</a>
+
+<a href="/frameWiki/games/{{game.id}}"><img src="{{ game.image.url }}"></a>
 {%endfor%}
 {% endblock %}

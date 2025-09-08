@@ -3,6 +3,8 @@ from django.db import models
 
 class Game(models.Model):
     name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to = 'image_store/', blank = True, null = True)
+
 
     def __str__(self):
         return self.name
@@ -14,6 +16,8 @@ class Game(models.Model):
 class Character(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="characters")
     name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to = 'image_store/', blank = True, null = True)
+
 
     def __str__(self):
         return f"{self.name} ({self.game})"
