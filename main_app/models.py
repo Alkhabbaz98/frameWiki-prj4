@@ -52,6 +52,8 @@ class Move(models.Model):
     start_up = models.IntegerField()
     active = models.IntegerField()
     recovery = models.IntegerField()
+    onhit = models.CharField(max_length=50, blank = True, null = True)
+    onblock = models.CharField(max_length=50, blank = True, null = True)
     description = models.TextField(max_length=500)
 
     def __str__(self):
