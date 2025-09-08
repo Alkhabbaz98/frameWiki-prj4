@@ -4,7 +4,7 @@
 <h1> {{character.name}}</h1>
 {% for move in moves%}
     <ul>
-        <img src={{  move.image.url }} >
+        <img src="{{  move.image.url }}" >
         <li>Name: {{move.name}}</li>
         <li>Type of Move: {{move.move_type}}</li>
         <li>Damage: {{move.damage}}</li>
@@ -13,6 +13,8 @@
         <li>Active: {{move.active}}</li>
         <li>Recovery: {{move.recovery}}</li>
         <li>Description: {{move.description}}</li>
+        
+        <a href="{% url 'move_details' move.pk%}">view</a>
 
     </ul>
 <hr>

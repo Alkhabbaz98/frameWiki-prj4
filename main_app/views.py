@@ -10,6 +10,10 @@ from .models import Game, Character, Move
 from . form import MoveForm
 # Create your views here.
 
+def home(request):
+    return render(request, 'home.html')
+
+
 class MoveListView(ListView):
     model = Move
     template_name = 'movelist.html'

@@ -52,7 +52,7 @@ class Move(models.Model):
     start_up = models.IntegerField()
     active = models.IntegerField()
     recovery = models.IntegerField()
-    description = models.CharField(max_length=500)
+    description = models.TextField(max_length=500)
 
     def __str__(self):
         return f"{self.character} - {self.name}"
