@@ -34,6 +34,7 @@ class Move(models.Model):
         ("Special", "Special"),
     ]
     character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="moves")
+    image = models.ImageField(upload_to = 'image_store/', blank = True, null = True)
     name = models.CharField(max_length=50)
     move_type = models.CharField(
         max_length=50,

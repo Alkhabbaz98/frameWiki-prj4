@@ -7,6 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views import View
 from .models import Game, Character, Move
+from . form import MoveForm
 # Create your views here.
 
 class MoveListView(ListView):
@@ -21,7 +22,7 @@ class MoveDetailView(DetailView):
 
 class MoveCreateView(CreateView):
     model = Move
-    fields = ['character','name','move_type','damage','guard_type','start_up','active','recovery','description']
+    form_class = MoveForm
     template_name = 'move_form.html'
 
     def  get_success_url(self):
@@ -38,7 +39,7 @@ class MoveCreateView(CreateView):
 
 class MoveUpdateView(UpdateView):
     model = Move
-    fields = ['character','name','move_type','damage','guard_type','start_up','active','recovery','description']
+    form_class = MoveForm
     template_name = 'move_form.html'
 
     def get_success_url(self):
@@ -49,7 +50,6 @@ class MoveDeleteView(DeleteView):
     # success_url = 'movelist'
     def get_success_url(self):
         return reverse_lazy('movelist')
-
 
 
 def list_all_games(request):
