@@ -1,0 +1,23 @@
+
+#game-img {
+   
+}
+
+#game-div-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 40%;
+}
+
+table {
+    margin-left: 12px;
+    width: 80%;
+}
+.move-title {
+    display: flex;
+    margin-left: 9%;
+}

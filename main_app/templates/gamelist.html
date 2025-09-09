@@ -1,8 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 {% for game in games%}
+<div id="game-div-list" >
+    <a href="/frameWiki/games/{{game.id}}"><img id="game-img" class= "img-thumbnail"  src="{{ game.image.url }}"></a>
+</div>
 
-<a href="/frameWiki/games/{{game.id}}"><img src="{{ game.image.url }}"></a>
 {%endfor%}
 {% endblock %}

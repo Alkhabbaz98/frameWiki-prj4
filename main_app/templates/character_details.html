@@ -2,13 +2,14 @@
 
 {% block content %}
 
-<h1> {{character.name}}</h1>
-
-<h1>Normal Moves</h1>
-<table>
+<h1 class="move-title">Normal Moves</h1>
+<div class="container">
+<table class="table align-middle">
     {% for move in moves%}
     {% if move.move_type == 'Normal' %}
+    <div>
     <img src="{{  move.image.url }}" >
+    </div>
     <tr>   
     <th>Name </th>
     <th>Type of Move </th>
@@ -31,64 +32,121 @@
     <td>{{ move.onhit }}</td>
     <td>{{ move.onblock }}</td>
     </tr>
-    <table>
     <tr>
-    <th style= "width: 31.5%">{{move.description}}</th> 
+    <th>Description</th>  
+    <td>
+    {{ move.description }}
+    </td>
+    </tr>
+    <tr>
+    <th>View</th>  
+    <td>
+    <a href="{% url 'move_details' move.pk%}">view</a>
+    </td>
     </tr>
     </table>
     
-        
-     <a href="{% url 'move_details' move.pk%}">view</a>
         {% endif %}
 
         {% endfor %}
-    </table>  
+ </div>
 
 
-    <h1>Special Moves</h1>
-    <ul>
-        {% for move in moves%}
-        {% if move.move_type == 'Special' %}
-        
-        <img src="{{  move.image.url }}" >
-        <li>Name: {{move.name}}</li>
-        <li>Type of Move: {{move.move_type}}</li>
-        <li>Damage: {{move.damage}}</li>
-        <li>Block: {{move.guard_type}}</li>
-        <li>Startup: {{move.start_up}}</li>
-        <li>Active: {{move.active}}</li>
-        <li>Recovery: {{move.recovery}}</li>
-        <li>On hit: {{ move.onhit }}</li>
-        <li>On block: {{ move.onblock }}</li>
-        <li>Description: {{move.description}}</li>
+<h1 class="move-title">Special Moves</h1>
+<div class="container">
+<table class="table align-middle">
+    {% for move in moves%}
+    {% if move.move_type == 'Special' %}
+    <div>
+    <img src="{{  move.image.url }}" >
+    </div>
+    <tr>   
+    <th>Name </th>
+    <th>Type of Move </th>
+    <th>Damage </th>
+    <th>Block </th>
+    <th>Startup </th>
+    <th>Active </th>
+    <th>Recovery </th>
+    <th>On Hit </th>
+    <th>On Block </th>
+    </tr> 
+    <tr>
+    <td>{{move.name}}</td>
+    <td>{{move.move_type}}</td>
+    <td>{{move.damage}}</td>
+    <td>{{move.guard_type}}</td>
+    <td>{{move.start_up}}</td>
+    <td>{{move.active}}</td>
+    <td>{{move.recovery}}</td>
+    <td>{{ move.onhit }}</td>
+    <td>{{ move.onblock }}</td>
+    </tr>
+    <tr>
+    <th>Description</th>  
+    <td>
+    {{ move.description }}
+    </td>
+    </tr>
+    <tr>
+    <th>View</th>  
+    <td>
+    <a href="{% url 'move_details' move.pk%}">view</a>
+    </td>
+    </tr>
+    </table>
 
-        <a href="{% url 'move_details' move.pk%}">view</a>
         {% endif %}
-        
-        {% endfor %}
 
+        {% endfor %}
+ </div>
     <hr>
-    <h1>Super Moves</h1>
-    <ul>
-        {% for move in moves%}
-        {% if move.move_type == 'Super' %}
-        <img src="{{  move.image.url }}" >
-        <li>Name: {{move.name}}</li>
-        <li>Type of Move: {{move.move_type}}</li>
-        <li>Damage: {{move.damage}}</li>
-        <li>Block: {{move.guard_type}}</li>
-        <li>Startup: {{move.start_up}}</li>
-        <li>Active: {{move.active}}</li>
-        <li>Recovery: {{move.recovery}}</li>
-        <li>On hit: {{ move.onhit }}</li>
-        <li>On block: {{ move.onblock }}</li>
-        <li>Description: {{move.description}}</li>
-
-        <a href="{% url 'move_details' move.pk%}">view</a>
+<h1 class="move-title">Super Moves</h1>
+<div class="container">
+<table class="table align-middle">
+    {% for move in moves%}
+    {% if move.move_type == 'Super' %}
+    <div>
+    <img src="{{  move.image.url }}" >
+    </div>
+    <tr>   
+    <th>Name </th>
+    <th>Type of Move </th>
+    <th>Damage </th>
+    <th>Block </th>
+    <th>Startup </th>
+    <th>Active </th>
+    <th>Recovery </th>
+    <th>On Hit </th>
+    <th>On Block </th>
+    </tr> 
+    <tr>
+    <td>{{move.name}}</td>
+    <td>{{move.move_type}}</td>
+    <td>{{move.damage}}</td>
+    <td>{{move.guard_type}}</td>
+    <td>{{move.start_up}}</td>
+    <td>{{move.active}}</td>
+    <td>{{move.recovery}}</td>
+    <td>{{ move.onhit }}</td>
+    <td>{{ move.onblock }}</td>
+    </tr>
+    <tr>
+    <th>Description</th>  
+    <td>
+    {{ move.description }}
+    </td>
+    </tr>
+    <tr>
+    <th>View</th>  
+    <td>
+    <a href="{% url 'move_details' move.pk%}">view</a>
+    </td>
+    </tr>
+    </table>   
         {% endif %}
-       
-        {%endfor%}
 
-    </ul>
+        {% endfor %}
+ </div>
 
 {% endblock %}
