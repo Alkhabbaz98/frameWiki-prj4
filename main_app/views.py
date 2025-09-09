@@ -8,6 +8,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.views import View
 from .models import Game, Character, Move
 from . form import MoveForm
+from django.views.generic import FormView
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 def home(request):
@@ -68,3 +70,9 @@ def character_details(request,character_id):
     moves = Move.objects.all().filter(character = character_id)
     character = Character.objects.get(id = character_id)
     return render(request, 'character_details.html', {'character': character, 'moves':moves })
+
+class SignUpView(CreateView):
+    template_name = "registration/signup.html"
+    form_class = UserCreationForm
+    success_url = reverse_lazy("login")  # or your home
+
