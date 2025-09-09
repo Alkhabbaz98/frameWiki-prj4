@@ -1,6 +1,7 @@
 
-#game-img {
-   
+body {
+    background-color: rgb(70, 69, 69);
+    color: white;
 }
 
 #game-div-list {
@@ -15,9 +16,20 @@
 
 table {
     margin-left: 12px;
+    
     width: 80%;
 }
-.move-title {
-    display: flex;
-    margin-left: 9%;
+
+
+button a {
+    color: white;
 }
+
+#game-img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.4)
+}
+

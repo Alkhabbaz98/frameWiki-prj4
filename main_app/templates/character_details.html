@@ -2,10 +2,11 @@
 
 {% block content %}
 
-<h1 class="move-title">Normal Moves</h1>
-<div class="container">
-<table class="table align-middle">
+<h1 class="container">Normal Moves</h1>
+
     {% for move in moves%}
+    <div class="container">
+    <table class="table table-dark align-middle">
     {% if move.move_type == 'Normal' %}
     <div>
     <img src="{{  move.image.url }}" >
@@ -34,28 +35,31 @@
     </tr>
     <tr>
     <th>Description</th>  
-    <td>
+    <td style="width: 100%;"class="description-area">
     {{ move.description }}
     </td>
     </tr>
     <tr>
     <th>View</th>  
     <td>
+    <button class="btn btn-primary">
     <a href="{% url 'move_details' move.pk%}">view</a>
+    </button>
     </td>
     </tr>
     </table>
-    
+    </div>
         {% endif %}
-
+ 
         {% endfor %}
- </div>
 
 
-<h1 class="move-title">Special Moves</h1>
-<div class="container">
-<table class="table align-middle">
+<hr>
+<h1 class="container">Special Moves</h1>
+
     {% for move in moves%}
+    <div class="container">
+    <table class="table table-dark align-middle">
     {% if move.move_type == 'Special' %}
     <div>
     <img src="{{  move.image.url }}" >
@@ -84,27 +88,30 @@
     </tr>
     <tr>
     <th>Description</th>  
-    <td>
+    <td class="description-area">
     {{ move.description }}
     </td>
     </tr>
     <tr>
     <th>View</th>  
     <td>
+    <button class="btn btn-primary">
     <a href="{% url 'move_details' move.pk%}">view</a>
+    </button>    
     </td>
     </tr>
     </table>
-
+    </div>
         {% endif %}
 
         {% endfor %}
- </div>
+
     <hr>
-<h1 class="move-title">Super Moves</h1>
-<div class="container">
-<table class="table align-middle">
+<h1 class="container">Super Moves</h1>
+
     {% for move in moves%}
+    <div class="container">
+    <table class="table table-dark align-middle">
     {% if move.move_type == 'Super' %}
     <div>
     <img src="{{  move.image.url }}" >
@@ -133,20 +140,26 @@
     </tr>
     <tr>
     <th>Description</th>  
-    <td>
+    <td class="description-area">
     {{ move.description }}
     </td>
     </tr>
     <tr>
     <th>View</th>  
     <td>
+    <button class="btn btn-primary">
     <a href="{% url 'move_details' move.pk%}">view</a>
+    </button> 
     </td>
     </tr>
     </table>   
+</div>
         {% endif %}
 
         {% endfor %}
- </div>
+
+<style>
+    
+</style>
 
 {% endblock %}
