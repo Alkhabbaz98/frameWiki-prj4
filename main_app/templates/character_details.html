@@ -5,9 +5,10 @@
 <h1 class="container">Normal Moves</h1>
 
     {% for move in moves%}
+     {% if move.move_type == 'Normal' %}
+
     <div class="container">
     <table class="table table-dark align-middle">
-    {% if move.move_type == 'Normal' %}
     <div>
     <img src="{{  move.image.url }}" >
     </div>
@@ -33,6 +34,8 @@
     <td>{{ move.onhit }}</td>
     <td>{{ move.onblock }}</td>
     </tr>
+  </table>
+  <table class="table table-dark align-middle">
     <tr>
     <th>Description</th>  
     <td style="width: 100%;"class="description-area">
@@ -47,7 +50,7 @@
     </button>
     </td>
     </tr>
-    </table>
+   </table> 
     </div>
         {% endif %}
  
@@ -58,9 +61,10 @@
 <h1 class="container">Special Moves</h1>
 
     {% for move in moves%}
-    <div class="container">
+        {% if move.move_type == 'Special' %}
+
+  <div class="container">
     <table class="table table-dark align-middle">
-    {% if move.move_type == 'Special' %}
     <div>
     <img src="{{  move.image.url }}" >
     </div>
@@ -86,9 +90,11 @@
     <td>{{ move.onhit }}</td>
     <td>{{ move.onblock }}</td>
     </tr>
+  </table>
+  <table class="table table-dark align-middle">
     <tr>
     <th>Description</th>  
-    <td class="description-area">
+    <td style="width: 100%;"class="description-area">
     {{ move.description }}
     </td>
     </tr>
@@ -97,11 +103,11 @@
     <td>
     <button class="btn btn-primary">
     <a href="{% url 'move_details' move.pk%}">view</a>
-    </button>    
+    </button>
     </td>
     </tr>
-    </table>
-    </div>
+   </table> 
+  </div>
         {% endif %}
 
         {% endfor %}
@@ -110,9 +116,10 @@
 <h1 class="container">Super Moves</h1>
 
     {% for move in moves%}
+    {% if move.move_type == 'Super' %}
+
     <div class="container">
     <table class="table table-dark align-middle">
-    {% if move.move_type == 'Super' %}
     <div>
     <img src="{{  move.image.url }}" >
     </div>
@@ -138,9 +145,11 @@
     <td>{{ move.onhit }}</td>
     <td>{{ move.onblock }}</td>
     </tr>
+  </table>
+  <table class="table table-dark align-middle">
     <tr>
     <th>Description</th>  
-    <td class="description-area">
+    <td style="width: 100%;"class="description-area">
     {{ move.description }}
     </td>
     </tr>
@@ -149,28 +158,32 @@
     <td>
     <button class="btn btn-primary">
     <a href="{% url 'move_details' move.pk%}">view</a>
-    </button> 
+    </button>
     </td>
     </tr>
-    </table>   
+   </table>  
 </div>
         {% endif %}
 
         {% endfor %}
 
 <style>
-    /* Section Titles */
+body {
+  color:white;
+  background: rgba(0, 0, 0, 0.7);
+}
 h1.container {
-  color: #fff;
+  color: white;
   font-size: 2.2rem;
-  margin: 40px 0 20px;
+  
   font-weight: bold;
   border-left: 6px solid #007bff;
-  padding-left: 10px;
+ 
 }
 
-/* Container for each move entry */
+
 .container {
+  
   margin-bottom: 50px;
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
@@ -178,10 +191,10 @@ h1.container {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Character image */
+
 .container img {
   display: block;
-  max-width: 200px;
+  max-width:400px;
   margin: 0 auto 20px auto;
   border-radius: 12px;
   transition: 0.3s ease;
@@ -191,7 +204,7 @@ h1.container {
   transform: scale(1.05);
 }
 
-/* Table styling */
+
 .table {
   margin-top: 10px;
   border-radius: 8px;
@@ -213,13 +226,13 @@ h1.container {
   vertical-align: middle;
 }
 
-/* Description row */
+
 .description-area {
   font-style: italic;
   color: #ccc;
 }
 
-/* Buttons */
+
 .btn-primary {
   background-color: #007bff !important;
   border: none;

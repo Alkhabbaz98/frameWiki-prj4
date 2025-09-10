@@ -8,6 +8,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.views import View
 from .models import Game, Character, Move
 from . form import MoveForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import FormView
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
@@ -16,7 +17,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-class MoveListView(ListView):
+class MoveListView(LoginRequiredMixin, ListView):
     model = Move
     template_name = 'movelist.html'
     context_object_name = 'moves'
