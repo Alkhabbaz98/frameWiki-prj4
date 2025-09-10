@@ -1,27 +1,140 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ move.character.name }}</h1>
-  <h2>{{ move.name }} </h2>
 
-  <ul>
-    <img src={{  move.image.url }} >
-    <li>Type:{{ move.move_type }}</li>
-    <li>Damage:{{ move.damage }}</li>
-    <li>Guard:{{ move.guard_type }}</li>
-    <li>Startup:{{ move.start_up }}</li>
-    <li>Active:{{ move.active }}</li>
-    <li>Recovery:{{ move.recovery }}</li>
-    <li>On hit: {{ move.onhit }}</li>
-    <li>On block: {{ move.onblock }}</li>
-    <li>Description:{{ move.description }}</li>
-  </ul>
+    <div class="container">
+    <table class="table table-dark align-middle">
+    <div>
+    <img src="{{  move.image.url }}" >
+    </div>
+    <tr>   
+    <th>Name </th>
+    <th>Type of Move </th>
+    <th>Damage </th>
+    <th>Block </th>
+    <th>Startup </th>
+    <th>Active </th>
+    <th>Recovery </th>
+    <th>On Hit </th>
+    <th>On Block </th>
+    </tr> 
+    <tr>
+    <td>{{move.name}}</td>
+    <td>{{move.move_type}}</td>
+    <td>{{move.damage}}</td>
+    <td>{{move.guard_type}}</td>
+    <td>{{move.start_up}}</td>
+    <td>{{move.active}}</td>
+    <td>{{move.recovery}}</td>
+    <td>{{ move.onhit }}</td>
+    <td>{{ move.onblock }}</td>
+    </tr>
+  </table>
+  <table class="table table-dark align-middle">
+    <tr>
+    <th>Description</th>  
+    <td style="width: 100%;"class="description-area">
+    {{ move.description }}
+    </td>
+    </tr>
+    <tr>
+    <th></th>  
+    <td>
+    <button class="btn btn-primary">
+      <a href="{% url 'move_update' move.pk %}"> Edit</a> 
+      <form action="{% url 'move_delete' move.pk%}" method='post'>
+                {% csrf_token %}
+                <button class="btn btn-primary">Delete Move</button>
+      </form>
+    </button>
+    </td>
+    </tr>
+   </table> 
+  </div>
 
-  <hr>
-  <a href="{% url 'move_update' move.pk %}"> Edit</a> |
-  <form action="{% url 'move_delete' move.pk%}" method='post'>
-            {% csrf_token %}
-            <button>Delete Move</button>
-  </form>
 
+<style>
+body {
+  color:white;
+  background: rgba(0, 0, 0, 0.7);
+}
+h1.container {
+  color: white;
+  font-size: 2.2rem;
+  
+  font-weight: bold;
+  border-left: 6px solid #007bff;
+ 
+}
+
+
+.container {
+  
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+.container img {
+  display: block;
+  max-width:400px;
+  margin: 0 auto 20px auto;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.container img:hover {
+  transform: scale(1.05);
+}
+
+
+.table {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #111 !important;
+  color: #00bfff;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 12px;
+}
+
+.table td {
+  background-color: #1c1c1c !important;
+  color: #f0f0f0;
+  padding: 12px;
+  vertical-align: middle;
+}
+
+
+.description-area {
+  font-style: italic;
+  color: #ccc;
+}
+
+
+.btn-primary {
+  background-color: #007bff !important;
+  margin-left:12px;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3 !important;
+}
+
+.btn-primary a {
+  color: white;
+  text-decoration: none;
+}
+
+</style>
+  
 {% endblock %}
