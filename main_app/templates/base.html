@@ -14,16 +14,15 @@
 <style>
 
 nav {
-  background: rgba(0, 0, 0, 0.6); 
+  background: rgba(0, 0, 0, 0.1); 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 25px;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-radius: 12px;
-  margin: 15px auto;
-  backdrop-filter: blur(6px); 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+
 }
 
 
@@ -54,10 +53,13 @@ nav {
 
 .logged-in{
     font-size: large;
-    text-align: center;
+    {% comment %} text-align: center; {% endcomment %}
     background: rgba(0, 0, 0, 0.7); 
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1px;
 }
 #logout {
     padding: 8px 15px;
@@ -69,6 +71,14 @@ nav {
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.username {
+  margin-top: 25px
+}
+
+.logout {
+  margin-top: 15px
 }
 
 @media (max-width: 768px) {
@@ -88,17 +98,26 @@ nav {
 </head>
 <body id="navbody">
 <div class="logged-in">
-{% if user.is_authenticated %}
-<li>
-<span >Hello, {{ user.username }}!</span>
-</li>
-<li>
-<form method='post' action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button id="logout">Log Out</button>
-</form>
+  {% if user.is_authenticated %}
+  <div class="username">
+    <span>Hello, {{ user.username }}!</span>
+  </div>
+  <div>
+    <nav>
+      <a class="a-nav" href="{% url 'home' %}">Home</a> 
+      <a class="a-nav" href="{% url 'movelist' %}">Movelist</a> 
+      <a class="a-nav" href="{% url 'move_create' %}">Add a New Move</a> 
+      <a class="a-nav" href="{% url 'gamelist' %}">Games 🎮</a>
+      {% comment %} <a class="a-nav" href="{% url 'signup' %}">sign up</a> {% endcomment %}
+    </nav>
+  </div>
+  <div class="logout">
+  <form method='post' action="{% url 'logout' %}">
+      {% csrf_token %}
+      <button id="logout">Log Out</button>
+  </form>
+  </div>
 </div>
-</li>
 {% else %}
 <li>
 <a href="{% url 'login' %}">Log In</a>
@@ -107,14 +126,7 @@ nav {
 <a href="/auth/signup">Sign Up</a>
 </li>
 {% endif %}
-    <nav >
-      <a class="a-nav" href="{% url 'home' %}">Home</a> 
-      <a class="a-nav" href="{% url 'movelist' %}">Movelist</a> 
-      <a class="a-nav" href="{% url 'move_create' %}">Add a New Move</a> 
-      <a class="a-nav" href="{% url 'gamelist' %}">Games 🎮</a>
-      {% comment %} <a class="a-nav" href="{% url 'signup' %}">sign up</a> {% endcomment %}
-      
-    </nav>
+    
     {% block content %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>

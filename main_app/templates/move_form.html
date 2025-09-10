@@ -1,12 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1> Add a New Move</h1>
+<h1> Add a New Move</h1>
 
-    <form method='post' enctype='multipart/form-data'>
+<div id="form">
+        <form method='post' enctype='multipart/form-data'>
         {% csrf_token %}
         {{form.as_p}}
 
         <button>Create a Move</button>
     </form>
+</div>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("https://pbs.twimg.com/media/GQXjDE_bYAAsoZI?format=jpg&name=4096x4096");
+  
+}
+h1 {
+    
+    text-align: center;
+    color: white;
+    margin:auto;
+    margin-bottom: 20px;
+    margin-top: 12px;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 4px;
+    border-radius: 12px;
+    max-width: 700px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+#form{
+    
+    color: white;
+    margin:auto;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 700px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+#form button{
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #ff4757, #ff6b81);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+</style>
 {% endblock %}
