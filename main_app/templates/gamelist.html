@@ -15,19 +15,30 @@
     }
     #game-div-list {        
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-item: center;
         text-align: center;
-
-    background: rgba(0, 0, 0, 0.7); 
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 600px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        gap: 20px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.7); 
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 600px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+       
     }
     #game-img{
-
+        margin: auto;
+        width: 500px;
         max-width: 500px;
+        transition: 0.3s;
     }
+    #game-img:hover{
+        transform: scale(1.05);
+    }
+
+
+
 </style>
 {% endblock %}
