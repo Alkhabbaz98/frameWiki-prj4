@@ -9,6 +9,7 @@ from django.views import View
 from .models import Game, Character, Move
 from . form import MoveForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.views.generic import FormView
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
@@ -17,23 +18,19 @@ def home(request):
     return render(request, 'home.html')
 
 
-class MoveListView(LoginRequiredMixin, ListView):
-    model = Move
-    template_name = 'movelist.html'
-    context_object_name = 'moves'
-
-class MoveDetailView(DetailView):
+class MoveDetailView(LoginRequiredMixin, DetailView):
     model = Move
     template_name = 'move_details.html'
     context_object_name = 'move'
 
-class MoveCreateView(CreateView):
+class MoveCreateView(LoginRequiredMixin, CreateView):
     model = Move
     form_class = MoveForm
     template_name = 'move_form.html'
 
     def  get_success_url(self):
-        return reverse('move_details', kwargs={"pk": self.object.pk})
+        character_id = self.object.character_id
+        return reverse('character_details', kwargs={"character_id": character_id})
     
     def form_invalid(self, form):
         response = super().form_invalid(form)
@@ -44,7 +41,7 @@ class MoveCreateView(CreateView):
         return super().form_valid(form)
     
 
-class MoveUpdateView(UpdateView):
+class MoveUpdateView(LoginRequiredMixin, UpdateView):
     model = Move
     form_class = MoveForm
     template_name = 'move_form.html'
@@ -52,21 +49,26 @@ class MoveUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('move_details', kwargs={"pk": self.object.pk})
 
-class MoveDeleteView(DeleteView):
+class MoveDeleteView(LoginRequiredMixin, DeleteView):
     model = Move
-    # success_url = 'movelist'
+
     def get_success_url(self):
-        return reverse_lazy('movelist')
+        character_id = self.object.character.id 
+        return reverse_lazy('character_details', kwargs={"character_id": character_id})
 
 
+@login_required
 def list_all_games(request):
     games = Game.objects.all()
     return render(request, 'gamelist.html', {'games': games})
 
+
+@login_required
 def character_list(request, game_id):
     characters = Character.objects.all().filter(game = game_id)
     return render(request, 'characterlist.html', {'characters': characters})
 
+@login_required
 def character_details(request,character_id):
     moves = Move.objects.all().filter(character = character_id)
     character = Character.objects.get(id = character_id)
@@ -75,5 +77,6 @@ def character_details(request,character_id):
 class SignUpView(CreateView):
     template_name = "registration/signup.html"
     form_class = UserCreationForm
-    success_url = reverse_lazy("login")  # or your home
+    success_url = reverse_lazy("login") 
+
 
