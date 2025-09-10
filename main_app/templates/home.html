@@ -13,10 +13,59 @@
     </div>
 
 <style>
-    body{
-        background-size: 100% 250%;
-        background-repeat: no-repeat;
-        background-image: url("https://pbs.twimg.com/media/GQXjDE_bYAAsoZI?format=jpg&name=4096x4096");
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("https://pbs.twimg.com/media/GQXjDE_bYAAsoZI?format=jpg&name=4096x4096");
+  }
+
+  #home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .container-lg {
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 700px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .container-lg h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ff4757;
+  }
+
+  .container-lg p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .container-lg button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #ff4757, #ff6b81);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .container-lg button:hover {
+    background: linear-gradient(90deg, #ff6b81, #ff4757);
+    transform: scale(1.05);
+  }
 </style>
     {% endblock  %}

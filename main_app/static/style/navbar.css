@@ -1,15 +1,36 @@
 
-nav {
-    background-color: rgba(5, 5, 5, 0.3);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: white;
-    font-size: larger;
-    gap: 15px;
-    margin-top: 10px;
+.a-nav {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: 0.3s ease;
 }
 
-.a-nav {
-    color: white;  
+.a-nav:hover {
+  background: linear-gradient(90deg, #ff4757, #ff6b81);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
+}
+
+.a-nav.active {
+  background: linear-gradient(90deg, #ff4757, #ff6b81);
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .a-nav {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
 }

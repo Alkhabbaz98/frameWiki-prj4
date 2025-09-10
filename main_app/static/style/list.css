@@ -4,15 +4,6 @@ body {
     color: white;
 }
 
-#game-div-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 40%;
-}
 
 table {
     margin-left: 12px;
@@ -23,13 +14,6 @@ table {
 
 button a {
     color: white;
-}
 
-#game-img {
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.4)
 }
 

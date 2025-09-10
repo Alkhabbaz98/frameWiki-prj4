@@ -1,5 +1,5 @@
+
 {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
 {% for game in games%}
@@ -8,4 +8,26 @@
 </div>
 
 {% endfor %}
+<style>
+    body {
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+    }
+    #game-div-list {        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+    #game-img{
+
+        max-width: 500px;
+    }
+</style>
 {% endblock %}
