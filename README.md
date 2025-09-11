@@ -20,9 +20,12 @@
 
 <p>The main technology used in this project is Django, a Python-based web framework. Django was used to build the backend, define the models for Game, Character, and Move, and manage all CRUD (Create, Read, Update, Delete) operations for moves.
 <br>
+<br>
 PostgreSQL(PGAdmin) was used as the database to store all data related to games, characters, and moves. Queries can be run and tested using pgAdmin.
 <br>
+<br>
 HTML templates were used to build the structure of the web pages. Django’s template system allowed for dynamic content, such as rendering a character’s move list or showing forms to create and edit moves.
+<br>
 <br>
 CSS was used to add styling and improve the appearance of the pages. It provided layout control and visual formatting for the forms, lists, and navigation.</p>
 <hr>
