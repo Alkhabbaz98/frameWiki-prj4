@@ -14,6 +14,12 @@
 <li><a href="https://www.w3schools.com/">W3Schools</li>
 
 <li><a href="https://www.dustloop.com/w/Main_Page">Dustloop</li>
+
+
+<li><a href="https://getbootstrap.com/">Bootstrap</li>
+
+<li><a href="https://docs.google.com/document/d/1RBjpbDs7AX9sDOom-xrHYfx66TA1VzJ11jhU4EsC7dU/edit?tab=t.0">Django Starter Guide</li>
+
 </ul>
 <hr>
 <h1>Project's Technological Content</h1>
