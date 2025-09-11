@@ -44,6 +44,6 @@ CSS was used to add styling and improve the appearance of the pages. It provided
 <li>Adding a search bar and a filter</li>
 
 <li>Add a feature when you can compare characters tools against each other</li>
-
+<li>Add a feature that provides a suggestion for a  move in different situations (if the move is blocked, hitted, or whiffed)</li>
 <li>Filtering the characters when submiting a move based on their game</li>
 </ul>
