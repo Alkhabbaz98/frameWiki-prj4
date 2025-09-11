@@ -12,6 +12,8 @@
 <li><a href="https://docs.djangoproject.com/en/5.2/">Django Documentation</li>
 
 <li><a href="https://www.w3schools.com/">W3Schools</li>
+
+<li><a href="https://www.dustloop.com/w/Main_Page">Dustloop</li>
 </ul>
 <hr>
 <h1>Project's Technological Content</h1>
